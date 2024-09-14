@@ -17,7 +17,7 @@ export const getCars = async (req, res) => {
             return res.status(200).json(filteredCars);
         }
 
-        if(req.query.category) filters.push({category: req.query.category})
+        if (req.query.category) filters.push({ category: req.query.category })
         if (req.query.model) filters.push({ model: req.query.model })
         if (req.query.fuel_type) filters.push({ fuel_type: req.query.fuel_type })
         if (req.query.is_luxury) filters.push({ is_luxury: req.query.is_luxury })
