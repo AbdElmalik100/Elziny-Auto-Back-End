@@ -89,13 +89,17 @@ export const getCar = async (req, res) => {
 export const updateCar = async (req, res) => {
     try {
         const { id } = req.params
+        
         const data = req.body
+        console.log(data);
         if (req.files.length > 0) data.images = req.files.map(file => file.filename)
         data.properties = JSON.parse(data.properties)
 
         const cars = await Cars.findByIdAndUpdate(id, data, { new: true })
         return res.status(200).json(cars)
     } catch (error) {
+        console.log(error);
+
         return res.status(400).json(error)
     }
 }
