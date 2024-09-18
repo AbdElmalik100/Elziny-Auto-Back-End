@@ -29,7 +29,9 @@ mongoose.connect(mongooseURL)
         console.log("MongoDB connection error: ", error);
     })
 
-
+app.use('/', (req, res) => {
+    res.status(200).json("Welcome to Elziny Back-End App")
+})
 
 app.use('/api/categories', categoriesRouter)
 app.use('/api/car-models', carModelsRouter)
